@@ -1,12 +1,12 @@
 //
-//  Drop.cpp
+//  Eliminate.cpp
 //  Threes
 //
 //  Created by CT on 11/6/15.
 //
 //
 
-#include "Drop.hpp"
+#include "Eliminate.hpp"
 #include "CommponentManager.hpp"
 #include "GameModel.hpp"
 
@@ -31,7 +31,7 @@ void printT(T t)
     }
 }
 
-void Drop::threes()
+void Eliminate::threes()
 {
     memset(hMap, 0, sizeof(hMap));
     for (int i = 0; i < xCount; ++i)
@@ -114,7 +114,7 @@ bool checkSelfIsTrible( int i, Range *range )
     return false;
 }
 
-Priority Drop::getPriority(Range *range)
+Priority Eliminate::getPriority(Range *range)
 {
     auto len = std::abs(range->b-range->a);
     if (len>=4) {
@@ -154,7 +154,7 @@ inline void setCross(Threes &threes, int xLine, int xstart, int xend, int yLine,
     setNormal(threes, yLine, ystart, yend, true);
 }
 
-void Drop::processClash(int x, int y) {
+void Eliminate::processClash(int x, int y) {
     Range* xArray = findIndex(xx[0], x, y);
     Range* yArray = findIndex(xx[1], y, x);
     if (xArray && yArray) {
@@ -191,14 +191,14 @@ void Drop::processClash(int x, int y) {
     }
 }
 
-void Drop::processClashs()
+void Eliminate::processClashs()
 {
     for (auto clashP:clashs) {
         processClash(clashP->x, clashP->y);
     }
 }
 
-void Drop::processLast()
+void Eliminate::processLast()
 {
     for (int i=0; i<2; i++) {
         for (auto nodes:xx[i]) {
@@ -214,7 +214,7 @@ void Drop::processLast()
     }
 }
 
-void Drop::init()
+void Eliminate::init()
 {
 //    _map
     for (int i=0; i<xCount; i++) {
@@ -232,7 +232,7 @@ void Drop::init()
     _eliminate = std::make_shared<ThreesVec>();
 }
 
-ThreesVec_ptr Drop::doEliminate()
+ThreesVec_ptr Eliminate::doEliminate()
 {
     init();
     threes();

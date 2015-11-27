@@ -30,6 +30,6 @@ void CommponentManager::remove(const string &key)
 
 commponent_ptr CommponentManager::find(const string &key)
 {
-    auto ptr = _commpoents.find(key)->second;
-    return ptr;
+//    auto ptr = _commpoents.find(key)->second;
+    return _commpoents.find(key)->second;
 }

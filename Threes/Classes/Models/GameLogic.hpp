@@ -13,7 +13,7 @@
 #include <stdio.h>
 #include <iostream>
 #include "Commponent.hpp"
-#include "Drop.hpp"
+#include "Eliminate.hpp"
 
 class GameLogic:public Commponent
 {

@@ -57,16 +57,17 @@
 		521A8EA919F11F5000D177D7 /* fonts in Resources */ = {isa = PBXBuildFile; fileRef = 521A8EA819F11F5000D177D7 /* fonts */; };
 		521A8EAA19F11F5000D177D7 /* fonts in Resources */ = {isa = PBXBuildFile; fileRef = 521A8EA819F11F5000D177D7 /* fonts */; };
 		52B47A471A53D09C004E4C60 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52B47A461A53D09B004E4C60 /* Security.framework */; };
-		605A7D381C0594CE00C1438F /* Commponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 605A7D321C0594CE00C1438F /* Commponent.cpp */; };
-		605A7D391C0594CE00C1438F /* CommponentManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 605A7D341C0594CE00C1438F /* CommponentManager.cpp */; };
-		605A7D3A1C0594CE00C1438F /* Observer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 605A7D361C0594CE00C1438F /* Observer.cpp */; };
-		605A7D3D1C059C4B00C1438F /* GameLogic.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 605A7D3B1C059C4A00C1438F /* GameLogic.cpp */; };
-		605A7D3F1C06D69C00C1438F /* Eliminate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 60BDD3201BECB0F700F8E9E3 /* Eliminate.cpp */; };
-		606ECC7D1BF4404E0035E1D6 /* GameControl.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 606ECC7B1BF4404E0035E1D6 /* GameControl.cpp */; };
-		606ECC811BF440D50035E1D6 /* GameModel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 606ECC7F1BF440D50035E1D6 /* GameModel.cpp */; };
-		607542011BEC91B800C41524 /* FruitFactory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 607541FF1BEC91B800C41524 /* FruitFactory.cpp */; };
-		607542041BEC936500C41524 /* Fruit.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 607542021BEC936500C41524 /* Fruit.cpp */; };
-		607542081BEC9C1800C41524 /* GameView.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 607542061BEC9C1800C41524 /* GameView.cpp */; };
+		605A7D701C085D5300C1438F /* FruitFactory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 605A7D551C085D5300C1438F /* FruitFactory.cpp */; };
+		605A7D711C085D5300C1438F /* Commponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 605A7D591C085D5300C1438F /* Commponent.cpp */; };
+		605A7D721C085D5300C1438F /* CommponentManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 605A7D5B1C085D5300C1438F /* CommponentManager.cpp */; };
+		605A7D731C085D5300C1438F /* Observer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 605A7D5D1C085D5300C1438F /* Observer.cpp */; };
+		605A7D741C085D5300C1438F /* GameControl.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 605A7D601C085D5300C1438F /* GameControl.cpp */; };
+		605A7D751C085D5300C1438F /* Drop.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 605A7D631C085D5300C1438F /* Drop.cpp */; };
+		605A7D761C085D5300C1438F /* Eliminate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 605A7D651C085D5300C1438F /* Eliminate.cpp */; };
+		605A7D771C085D5300C1438F /* Fruit.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 605A7D671C085D5300C1438F /* Fruit.cpp */; };
+		605A7D781C085D5300C1438F /* GameLogic.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 605A7D691C085D5300C1438F /* GameLogic.cpp */; };
+		605A7D791C085D5300C1438F /* GameModel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 605A7D6B1C085D5300C1438F /* GameModel.cpp */; };
+		605A7D7A1C085D5300C1438F /* GameView.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 605A7D6E1C085D5300C1438F /* GameView.cpp */; };
 		60BDD31F1BECAB9200F8E9E3 /* assets in Resources */ = {isa = PBXBuildFile; fileRef = 60BDD31E1BECAB9200F8E9E3 /* assets */; };
 		8262943E1AAF051F00CB7CF7 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8262943D1AAF051F00CB7CF7 /* Security.framework */; };
 		BF171245129291EC00B8313A /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF170DB012928DE900B8313A /* OpenGLES.framework */; };
@@ -160,29 +161,31 @@
 		521A8E6319F0C34300D177D7 /* Default-736h@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-736h@3x.png"; sourceTree = "<group>"; };
 		521A8EA819F11F5000D177D7 /* fonts */ = {isa = PBXFileReference; lastKnownFileType = folder; path = fonts; sourceTree = "<group>"; };
 		52B47A461A53D09B004E4C60 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.1.sdk/System/Library/Frameworks/Security.framework; sourceTree = DEVELOPER_DIR; };
-		605A7D321C0594CE00C1438F /* Commponent.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Commponent.cpp; sourceTree = "<group>"; };
-		605A7D331C0594CE00C1438F /* Commponent.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Commponent.hpp; sourceTree = "<group>"; };
-		605A7D341C0594CE00C1438F /* CommponentManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CommponentManager.cpp; sourceTree = "<group>"; };
-		605A7D351C0594CE00C1438F /* CommponentManager.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = CommponentManager.hpp; sourceTree = "<group>"; };
-		605A7D361C0594CE00C1438F /* Observer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Observer.cpp; sourceTree = "<group>"; };
-		605A7D371C0594CE00C1438F /* Observer.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Observer.hpp; sourceTree = "<group>"; };
-		605A7D3B1C059C4A00C1438F /* GameLogic.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameLogic.cpp; sourceTree = "<group>"; };
-		605A7D3C1C059C4A00C1438F /* GameLogic.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = GameLogic.hpp; sourceTree = "<group>"; };
-		606ECC751BF036590035E1D6 /* Singleton.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Singleton.hpp; sourceTree = "<group>"; };
-		606ECC7B1BF4404E0035E1D6 /* GameControl.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameControl.cpp; sourceTree = "<group>"; };
-		606ECC7C1BF4404E0035E1D6 /* GameControl.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = GameControl.hpp; sourceTree = "<group>"; };
-		606ECC7F1BF440D50035E1D6 /* GameModel.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameModel.cpp; sourceTree = "<group>"; };
-		606ECC801BF440D50035E1D6 /* GameModel.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = GameModel.hpp; sourceTree = "<group>"; };
-		607541FF1BEC91B800C41524 /* FruitFactory.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FruitFactory.cpp; sourceTree = "<group>"; };
-		607542001BEC91B800C41524 /* FruitFactory.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = FruitFactory.hpp; sourceTree = "<group>"; };
-		607542021BEC936500C41524 /* Fruit.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Fruit.cpp; sourceTree = "<group>"; };
-		607542031BEC936500C41524 /* Fruit.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Fruit.hpp; sourceTree = "<group>"; };
-		607542051BEC94AA00C41524 /* Const.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Const.h; sourceTree = "<group>"; };
-		607542061BEC9C1800C41524 /* GameView.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameView.cpp; sourceTree = "<group>"; };
-		607542071BEC9C1800C41524 /* GameView.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.h; fileEncoding = 4; path = GameView.h; sourceTree = "<group>"; };
+		605A7D541C085D5300C1438F /* Const.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Const.h; sourceTree = "<group>"; };
+		605A7D551C085D5300C1438F /* FruitFactory.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FruitFactory.cpp; sourceTree = "<group>"; };
+		605A7D561C085D5300C1438F /* FruitFactory.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = FruitFactory.hpp; sourceTree = "<group>"; };
+		605A7D571C085D5300C1438F /* Singleton.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Singleton.hpp; sourceTree = "<group>"; };
+		605A7D591C085D5300C1438F /* Commponent.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Commponent.cpp; sourceTree = "<group>"; };
+		605A7D5A1C085D5300C1438F /* Commponent.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Commponent.hpp; sourceTree = "<group>"; };
+		605A7D5B1C085D5300C1438F /* CommponentManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CommponentManager.cpp; sourceTree = "<group>"; };
+		605A7D5C1C085D5300C1438F /* CommponentManager.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = CommponentManager.hpp; sourceTree = "<group>"; };
+		605A7D5D1C085D5300C1438F /* Observer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Observer.cpp; sourceTree = "<group>"; };
+		605A7D5E1C085D5300C1438F /* Observer.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Observer.hpp; sourceTree = "<group>"; };
+		605A7D601C085D5300C1438F /* GameControl.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameControl.cpp; sourceTree = "<group>"; };
+		605A7D611C085D5300C1438F /* GameControl.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = GameControl.hpp; sourceTree = "<group>"; };
+		605A7D631C085D5300C1438F /* Drop.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Drop.cpp; sourceTree = "<group>"; };
+		605A7D641C085D5300C1438F /* Drop.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Drop.hpp; sourceTree = "<group>"; };
+		605A7D651C085D5300C1438F /* Eliminate.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Eliminate.cpp; sourceTree = "<group>"; };
+		605A7D661C085D5300C1438F /* Eliminate.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Eliminate.hpp; sourceTree = "<group>"; };
+		605A7D671C085D5300C1438F /* Fruit.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Fruit.cpp; sourceTree = "<group>"; };
+		605A7D681C085D5300C1438F /* Fruit.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Fruit.hpp; sourceTree = "<group>"; };
+		605A7D691C085D5300C1438F /* GameLogic.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameLogic.cpp; sourceTree = "<group>"; };
+		605A7D6A1C085D5300C1438F /* GameLogic.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = GameLogic.hpp; sourceTree = "<group>"; };
+		605A7D6B1C085D5300C1438F /* GameModel.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameModel.cpp; sourceTree = "<group>"; };
+		605A7D6C1C085D5300C1438F /* GameModel.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = GameModel.hpp; sourceTree = "<group>"; };
+		605A7D6E1C085D5300C1438F /* GameView.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameView.cpp; sourceTree = "<group>"; };
+		605A7D6F1C085D5300C1438F /* GameView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameView.h; sourceTree = "<group>"; };
 		60BDD31E1BECAB9200F8E9E3 /* assets */ = {isa = PBXFileReference; lastKnownFileType = folder; path = assets; sourceTree = "<group>"; };
-		60BDD3201BECB0F700F8E9E3 /* Eliminate.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Eliminate.cpp; sourceTree = "<group>"; };
-		60BDD3211BECB0F700F8E9E3 /* Eliminate.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Eliminate.hpp; sourceTree = "<group>"; };
 		8262943D1AAF051F00CB7CF7 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		BF170DB012928DE900B8313A /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		BF170DB412928DE900B8313A /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
@@ -328,11 +331,11 @@
 		46880B8319C43A87006E1F66 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				605A7D311C0594CE00C1438F /* Commponent */,
-				606ECC7A1BF4402B0035E1D6 /* Controls */,
-				606ECC791BF440050035E1D6 /* Common */,
-				606ECC781BF43FF40035E1D6 /* Views */,
-				606ECC771BF43FDC0035E1D6 /* Models */,
+				605A7D531C085D5300C1438F /* Common */,
+				605A7D581C085D5300C1438F /* Commponent */,
+				605A7D5F1C085D5300C1438F /* Controllers */,
+				605A7D621C085D5300C1438F /* Models */,
+				605A7D6D1C085D5300C1438F /* Views */,
 				46880B8419C43A87006E1F66 /* AppDelegate.cpp */,
 				46880B8519C43A87006E1F66 /* AppDelegate.h */,
 			);
@@ -387,61 +390,63 @@
 			path = ios;
 			sourceTree = SOURCE_ROOT;
 		};
-		605A7D311C0594CE00C1438F /* Commponent */ = {
+		605A7D531C085D5300C1438F /* Common */ = {
 			isa = PBXGroup;
 			children = (
-				605A7D321C0594CE00C1438F /* Commponent.cpp */,
-				605A7D331C0594CE00C1438F /* Commponent.hpp */,
-				605A7D341C0594CE00C1438F /* CommponentManager.cpp */,
-				605A7D351C0594CE00C1438F /* CommponentManager.hpp */,
-				605A7D361C0594CE00C1438F /* Observer.cpp */,
-				605A7D371C0594CE00C1438F /* Observer.hpp */,
+				605A7D541C085D5300C1438F /* Const.h */,
+				605A7D551C085D5300C1438F /* FruitFactory.cpp */,
+				605A7D561C085D5300C1438F /* FruitFactory.hpp */,
+				605A7D571C085D5300C1438F /* Singleton.hpp */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		605A7D581C085D5300C1438F /* Commponent */ = {
+			isa = PBXGroup;
+			children = (
+				605A7D591C085D5300C1438F /* Commponent.cpp */,
+				605A7D5A1C085D5300C1438F /* Commponent.hpp */,
+				605A7D5B1C085D5300C1438F /* CommponentManager.cpp */,
+				605A7D5C1C085D5300C1438F /* CommponentManager.hpp */,
+				605A7D5D1C085D5300C1438F /* Observer.cpp */,
+				605A7D5E1C085D5300C1438F /* Observer.hpp */,
 			);
 			path = Commponent;
 			sourceTree = "<group>";
 		};
-		606ECC771BF43FDC0035E1D6 /* Models */ = {
+		605A7D5F1C085D5300C1438F /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				607542021BEC936500C41524 /* Fruit.cpp */,
-				607542031BEC936500C41524 /* Fruit.hpp */,
-				60BDD3201BECB0F700F8E9E3 /* Eliminate.cpp */,
-				60BDD3211BECB0F700F8E9E3 /* Eliminate.hpp */,
-				606ECC7F1BF440D50035E1D6 /* GameModel.cpp */,
-				606ECC801BF440D50035E1D6 /* GameModel.hpp */,
-				605A7D3B1C059C4A00C1438F /* GameLogic.cpp */,
-				605A7D3C1C059C4A00C1438F /* GameLogic.hpp */,
+				605A7D601C085D5300C1438F /* GameControl.cpp */,
+				605A7D611C085D5300C1438F /* GameControl.hpp */,
 			);
-			name = Models;
+			path = Controllers;
 			sourceTree = "<group>";
 		};
-		606ECC781BF43FF40035E1D6 /* Views */ = {
+		605A7D621C085D5300C1438F /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				607542061BEC9C1800C41524 /* GameView.cpp */,
-				607542071BEC9C1800C41524 /* GameView.h */,
+				605A7D631C085D5300C1438F /* Drop.cpp */,
+				605A7D641C085D5300C1438F /* Drop.hpp */,
+				605A7D651C085D5300C1438F /* Eliminate.cpp */,
+				605A7D661C085D5300C1438F /* Eliminate.hpp */,
+				605A7D671C085D5300C1438F /* Fruit.cpp */,
+				605A7D681C085D5300C1438F /* Fruit.hpp */,
+				605A7D691C085D5300C1438F /* GameLogic.cpp */,
+				605A7D6A1C085D5300C1438F /* GameLogic.hpp */,
+				605A7D6B1C085D5300C1438F /* GameModel.cpp */,
+				605A7D6C1C085D5300C1438F /* GameModel.hpp */,
 			);
-			name = Views;
+			path = Models;
 			sourceTree = "<group>";
 		};
-		606ECC791BF440050035E1D6 /* Common */ = {
+		605A7D6D1C085D5300C1438F /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				607541FF1BEC91B800C41524 /* FruitFactory.cpp */,
-				607542001BEC91B800C41524 /* FruitFactory.hpp */,
-				607542051BEC94AA00C41524 /* Const.h */,
-				606ECC751BF036590035E1D6 /* Singleton.hpp */,
+				605A7D6E1C085D5300C1438F /* GameView.cpp */,
+				605A7D6F1C085D5300C1438F /* GameView.h */,
 			);
-			name = Common;
-			sourceTree = "<group>";
-		};
-		606ECC7A1BF4402B0035E1D6 /* Controls */ = {
-			isa = PBXGroup;
-			children = (
-				606ECC7B1BF4404E0035E1D6 /* GameControl.cpp */,
-				606ECC7C1BF4404E0035E1D6 /* GameControl.hpp */,
-			);
-			name = Controls;
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -586,20 +591,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				605A7D391C0594CE00C1438F /* CommponentManager.cpp in Sources */,
-				607542081BEC9C1800C41524 /* GameView.cpp in Sources */,
-				607542011BEC91B800C41524 /* FruitFactory.cpp in Sources */,
+				605A7D771C085D5300C1438F /* Fruit.cpp in Sources */,
+				605A7D721C085D5300C1438F /* CommponentManager.cpp in Sources */,
+				605A7D741C085D5300C1438F /* GameControl.cpp in Sources */,
+				605A7D791C085D5300C1438F /* GameModel.cpp in Sources */,
 				46880B8819C43A87006E1F66 /* AppDelegate.cpp in Sources */,
-				605A7D3A1C0594CE00C1438F /* Observer.cpp in Sources */,
-				606ECC811BF440D50035E1D6 /* GameModel.cpp in Sources */,
 				503AE10017EB989F00D1A890 /* AppController.mm in Sources */,
+				605A7D751C085D5300C1438F /* Drop.cpp in Sources */,
 				503AE10217EB989F00D1A890 /* RootViewController.mm in Sources */,
-				605A7D3F1C06D69C00C1438F /* Eliminate.cpp in Sources */,
+				605A7D701C085D5300C1438F /* FruitFactory.cpp in Sources */,
+				605A7D731C085D5300C1438F /* Observer.cpp in Sources */,
 				503AE10117EB989F00D1A890 /* main.m in Sources */,
-				607542041BEC936500C41524 /* Fruit.cpp in Sources */,
-				606ECC7D1BF4404E0035E1D6 /* GameControl.cpp in Sources */,
-				605A7D3D1C059C4B00C1438F /* GameLogic.cpp in Sources */,
-				605A7D381C0594CE00C1438F /* Commponent.cpp in Sources */,
+				605A7D761C085D5300C1438F /* Eliminate.cpp in Sources */,
+				605A7D781C085D5300C1438F /* GameLogic.cpp in Sources */,
+				605A7D711C085D5300C1438F /* Commponent.cpp in Sources */,
+				605A7D7A1C085D5300C1438F /* GameView.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

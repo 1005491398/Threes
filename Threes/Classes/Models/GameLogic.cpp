@@ -12,8 +12,8 @@
 
 GameLogic::GameLogic()
 :Commponent("GameLogic")
-,_selectX(-1)
-,_selectY(-1)
+,_selectX(NIL)
+,_selectY(NIL)
 {
 
 }
@@ -43,10 +43,10 @@ void GameLogic::processEliminate(ThreesVec_ptr threeVec)
             case Priority::CROSS:
                 CCLOG("CROSS");
             default:
-                if (three->xLine != -1) {
+                if (three->xLine != NIL) {
                     eliminateRange(three->xLine, three->xstart, three->xend);
                 }
-                if (three->yLine != -1) {
+                if (three->yLine != NIL) {
                     eliminateRange(three->yLine, three->ystart, three->yend, true);
                 }
                 break;
@@ -56,11 +56,11 @@ void GameLogic::processEliminate(ThreesVec_ptr threeVec)
 
 void GameLogic::setSelect(int x, int y)
 {
-    if (_selectX!=-1&&_selectY!=-1&&(x!=_selectX||y!=_selectY)) {
+    if (_selectX!=NIL&&_selectY!=NIL&&(x!=_selectX||y!=_selectY)) {
         GetCommponent<GameModel*>("GameModel")->exchange(_selectX, _selectY, x, y);
-        _selectX = -1;
-        _selectY = -1;
-        processEliminate(Singleton<Drop>::getInstance().doEliminate());
+        _selectX = NIL;
+        _selectY = NIL;
+        processEliminate(Singleton<Eliminate>::getInstance().doEliminate());
         return;
     }
     _selectX = x;

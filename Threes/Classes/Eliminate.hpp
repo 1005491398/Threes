@@ -1,13 +1,13 @@
 //
-//  Drop.hpp
+//  Eliminate.hpp
 //  Threes
 //
 //  Created by CT on 11/6/15.
 //
 //
 
-#ifndef Drop_hpp
-#define Drop_hpp
+#ifndef Eliminate_hpp
+#define Eliminate_hpp
 
 #include <stdio.h>
 #include "Singleton.hpp"
@@ -72,7 +72,7 @@ using Nodes = std::list<Range *>;
 using XYMap = std::map<int, Nodes *>;
 using ThreesVec_ptr = std::shared_ptr<ThreesVec>;
 
-class Drop {
+class Eliminate {
 private:
     int hMap[xCount][yCount];
 //    XYMap xVec, yVec;
@@ -89,12 +89,12 @@ private:
     void processLast();
     Priority getPriority(Range *range);
 protected:
-    Drop() {};
-    ~Drop() {};
+    Eliminate() {};
+    ~Eliminate() {};
     
-    friend class Singleton<Drop>;
+    friend class Singleton<Eliminate>;
 public:
     ThreesVec_ptr doEliminate();
 };
 
-#endif /* Drop_hpp */
+#endif /* Eliminate_hpp */
