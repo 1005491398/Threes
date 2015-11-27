@@ -166,6 +166,6 @@ void Drop::doDrop()
     Points eliminatePoints{Vec2(9,3),Vec2(8,3),Vec2(7,3),Vec2(6,3)};
     
     for (auto p: eliminatePoints) {
-        findOneWay(p.x, p3y);
+        findOneWay(p.x, p.y);
     }
 }
