@@ -7,7 +7,6 @@
 //
 
 #include "GameControl.hpp"
-#include "HelloWorldScene.h"
 USING_NS_CC;
 
 GameController::GameController()
