@@ -9,6 +9,7 @@
 #include "GameLogic.hpp"
 #include "CommponentManager.hpp"
 #include "GameModel.hpp"
+#include "Drop.hpp"
 
 GameLogic::GameLogic()
 :Commponent("GameLogic")
@@ -54,6 +55,16 @@ void GameLogic::processEliminate(ThreesVec_ptr threeVec)
     }
 }
 
+void GameLogic::processDrop(ThreesVec_ptr threeVec)
+{
+    auto dropPoints = Singleton<Drop>::getInstance().doDrop();
+    for (auto points:*dropPoints) {
+        if (points->size() != 0) {
+            GetCommponent<GameModel*>("GameModel")->exchange(points->front()->x, points->front()->y, points->back()->x, points->back()->y);
+        }
+    }
+}
+
 void GameLogic::setSelect(int x, int y)
 {
     if (_selectX!=NIL&&_selectY!=NIL&&(x!=_selectX||y!=_selectY)) {
@@ -61,6 +72,7 @@ void GameLogic::setSelect(int x, int y)
         _selectX = NIL;
         _selectY = NIL;
         processEliminate(Singleton<Eliminate>::getInstance().doEliminate());
+//        processDrop(nullptr);
         return;
     }
     _selectX = x;

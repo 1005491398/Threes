@@ -27,7 +27,6 @@ public:
     
     template<typename T>
     inline T getCommponent(const string &name) {return static_cast<T>(find(name));}
-	/* data */
 protected:
     friend class Commponent;
 private:

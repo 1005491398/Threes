@@ -11,6 +11,8 @@
 #include "FruitFactory.hpp"
 #include "CommponentManager.hpp"
 
+#pragma omp parallel for
+
 GameView::~GameView()
 {
     

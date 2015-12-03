@@ -7,6 +7,8 @@
 //
 
 #include "Drop.hpp"
+#include "GameModel.hpp"
+#include "CommponentManager.hpp"
 
 using namespace std;
 void printMap(int Map[xCount][yCount])
@@ -25,13 +27,13 @@ const int UnReachable = -1;
 
 Drop::Drop()
 {
-    memset(_map, 0, sizeof(int)*xCount*yCount);
+//    memset(_map, 0, sizeof(int)*xCount*yCount);
 }
 
 void Drop::initExitList()
 {
     for (int i=0; i<xCount; i++) {
-        _exitPoints.push_back(Vec2(0, i));
+        _exitPoints.push_back(new drop_point(0, i));
     }
 }
 
@@ -71,7 +73,7 @@ int Drop::getRightValue(int x, int y)
 void Drop::initPathValue()
 {
     for (auto point: _exitPoints) {
-        _map[(int)point.x][(int)point.y] = 1;
+        _map[(int)point->x][(int)point->y] = 1;
     }
     for (int i=0; i<xCount; i++) {
         for (int j=0; j<yCount; j++) {
@@ -118,9 +120,9 @@ int Drop::findRight(int x, int y)
     return find(x-1,y+1);
 }
 
-Points Drop::findOneWay(int x, int y)
+points_ptr Drop::findOneWay(int x, int y)
 {
-    Points points;
+    points_ptr points = make_shared<Points>();
     auto xx = x, yy = y;
     
     for (int i=0; i<2*xCount; i++) {
@@ -134,22 +136,22 @@ Points Drop::findOneWay(int x, int y)
                     break;
                 }
                 else {
-                    points.push_back(Vec2(xx-1, yy+1));
-                    points.push_back(Vec2(xx, yy));
+                    points->push_back(new drop_point(xx, yy));
+                    points->push_back(new drop_point(xx-1, yy+1));
                     xx -= 1;
                     yy += 1;
                 }
             }
             else {
-                points.push_back(Vec2(xx-1, yy-1));
-                points.push_back(Vec2(xx, yy));
+                points->push_back(new drop_point(xx, yy));
+                points->push_back(new drop_point(xx-1, yy-1));
                 xx -= 1;
                 yy -= 1;
             }
         }
         else {
-            points.push_back(Vec2(xx-1, yy));
-            points.push_back(Vec2(xx, yy));
+            points->push_back(new drop_point(xx, yy));
+            points->push_back(new drop_point(xx-1, yy));
             xx -= 1;
         }
         if (value == 1)
@@ -158,14 +160,43 @@ Points Drop::findOneWay(int x, int y)
     return points;
 }
 
-void Drop::doDrop()
+void Drop::init()
 {
+    _exitPoints.clear();
+    _eliminatePoints.clear();
+    memset(_map, 0, sizeof(Map));
+    for (int i=0; i<xCount; i++) {
+        for (int j=0; j<yCount; j++) {
+            auto fruit = GetCommponent<GameModel*>("GameModel")->getFuit(i, j);
+            Map[i][j] = 1;
+            if (fruit==nullptr) {
+                _eliminatePoints.push_back(new drop_point(i,j));
+            }
+        }
+    }
     initExitList();
     initPathValue();
-    printMap(_map);
-    Points eliminatePoints{Vec2(9,3),Vec2(8,3),Vec2(7,3),Vec2(6,3)};
-    
-    for (auto p: eliminatePoints) {
-        findOneWay(p.x, p.y);
+}
+
+void printPoints(points_ptr points)
+{
+    int i=0;
+    for (auto point:*points) {
+        printf("num:%d %d-%d\n", ++i, point->x, point->y);
     }
+    printf("\n");
+}
+
+vec_points_ptr Drop::doDrop()
+{
+    init();
+    printMap(_map);
+    
+    auto dropPosints = make_shared<vector<points_ptr>>();
+    for (auto p: _eliminatePoints) {
+        auto points = findOneWay(p->x, p->y);
+        printPoints(findOneWay(p->x, p->y));
+        dropPosints->push_back(findOneWay(p->x, p->y));
+    }
+    return dropPosints;
 }

@@ -10,17 +10,17 @@
 #include "CommponentManager.hpp"
 #include "GameModel.hpp"
 
-void printMap(int Map[xCount][yCount])
-{
-    for (int i = 0; i < xCount; ++i)
-    {
-        for (int j = 0; j < yCount; ++j)
-        {
-            cout<<Map[i][j]<<"\t";
-        }
-        cout<<endl;
-    }
-}
+//void printMap(int Map[xCount][yCount])
+//{
+//    for (int i = 0; i < xCount; ++i)
+//    {
+//        for (int j = 0; j < yCount; ++j)
+//        {
+//            cout<<Map[i][j]<<"\t";
+//        }
+//        cout<<endl;
+//    }
+//}
 
 template <typename T>
 void printT(T t)
@@ -59,7 +59,17 @@ void Eliminate::threes()
                         xx[index][i] = nodes;
                     }
                     // 在冲突 数组里面检测是否有冲突点
-                    for (int k=startPos[index]; k<=j-1; k++) {
+                    bool flag = i%2==0;
+                    int si = startPos[index], ei = j-1;
+                    si = flag?si:ei;
+                    ei = flag?ei:si;
+                    for (int k=si; ; ) {
+                        if (flag) {
+                            if (k>ei) break;
+                        }
+                        else {
+                            if (k<ei) break;
+                        }
                         if (index == 0) {
                             hMap[i][k] += 1;
                             if (hMap[i][k]>1) {
@@ -72,6 +82,7 @@ void Eliminate::threes()
                                 clashs.push_back(new Vec2(k, i));
                             }
                         }
+                        flag?++k:--k;
                     }
                 }
                 len[index] = 1;
@@ -152,6 +163,11 @@ inline void setCross(Threes &threes, int xLine, int xstart, int xend, int yLine,
 {
     setNormal(threes, xLine, xstart, xend);
     setNormal(threes, yLine, ystart, yend, true);
+}
+
+void Eliminate::sortClashs()
+{
+    
 }
 
 void Eliminate::processClash(int x, int y) {

@@ -21,7 +21,7 @@ _type(type)
 
 Fruit::~Fruit()
 {
-    CCLOG("Fruit is destoryed!!");
+    CCLOG("Fruit %d-%d is destoryed!!", _x, _y);
 //    CC_SAFE_DELETE(_sprite);
 }
 

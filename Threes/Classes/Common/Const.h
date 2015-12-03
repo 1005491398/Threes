@@ -24,4 +24,6 @@ const int xCount = 8;
 const int yCount = 8;
 const int NIL = -1;
 
+extern void printMap(int Map[xCount][yCount]);
+
 #endif /* Const_h */

@@ -87,6 +87,7 @@ private:
     void processClashs();
     inline void processClash(int x, int y);
     void processLast();
+    void sortClashs();
     Priority getPriority(Range *range);
 protected:
     Eliminate() {};

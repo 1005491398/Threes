@@ -25,7 +25,7 @@ public:
     inline const cocos2d::Point getSelect() const { return cocos2d::Point(_selectX,_selectY);
     }
     void processEliminate(ThreesVec_ptr threeVec);
-	/* data */
+    void processDrop(ThreesVec_ptr threeVec);
 protected:
 	
 private:
