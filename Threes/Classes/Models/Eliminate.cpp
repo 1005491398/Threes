@@ -59,30 +59,22 @@ void Eliminate::threes()
                         xx[index][i] = nodes;
                     }
                     // 在冲突 数组里面检测是否有冲突点
-                    bool flag = i%2==0;
-                    int si = startPos[index], ei = j-1;
-                    si = flag?si:ei;
-                    ei = flag?ei:si;
-                    for (int k=si; ; ) {
-                        if (flag) {
-                            if (k>ei) break;
-                        }
-                        else {
-                            if (k<ei) break;
-                        }
-                        if (index == 0) {
-                            hMap[i][k] += 1;
-                            if (hMap[i][k]>1) {
-                                clashs.push_back(new Vec2(i, k));
+                    if(len[index]<7)
+                    {
+                        for (int k=startPos[index]; k<=j-1; k++) {
+                            if (index == 0) {
+                                hMap[i][k] += 1;
+                                if (hMap[i][k]>1) {
+                                    clashs.push_back(new Vec2(i, k));
+                                }
+                            }
+                            else {
+                                hMap[k][i] += 1;
+                                if (hMap[k][i]>1) {
+                                    clashs.push_back(new Vec2(k, i));
+                                }
                             }
                         }
-                        else {
-                            hMap[k][i] += 1;
-                            if (hMap[k][i]>1) {
-                                clashs.push_back(new Vec2(k, i));
-                            }
-                        }
-                        flag?++k:--k;
                     }
                 }
                 len[index] = 1;
@@ -236,9 +228,10 @@ void Eliminate::init()
     for (int i=0; i<xCount; i++) {
         for (int j=0; j<yCount; j++) {
             auto fruit = GetCommponent<GameModel*>("GameModel")->getFuit(i, j);
-            _map[i][j] = fruit?fruit->ftype():0;
+            _map[i][j] = fruit!=nullptr?fruit->ftype():0;
         }
     }
+    printMap(_map);
 //    xVec.clear();
 //    yVec.clear();
     // clear 可能不会是放 容器的空间

@@ -69,6 +69,7 @@
 		605A7D791C085D5300C1438F /* GameModel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 605A7D6B1C085D5300C1438F /* GameModel.cpp */; };
 		605A7D7A1C085D5300C1438F /* GameView.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 605A7D6E1C085D5300C1438F /* GameView.cpp */; };
 		60BDD31F1BECAB9200F8E9E3 /* assets in Resources */ = {isa = PBXBuildFile; fileRef = 60BDD31E1BECAB9200F8E9E3 /* assets */; };
+		60F9BF0B1C1132EB0000E5E7 /* FruitMachine.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 60F9BF091C1132EB0000E5E7 /* FruitMachine.cpp */; };
 		8262943E1AAF051F00CB7CF7 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8262943D1AAF051F00CB7CF7 /* Security.framework */; };
 		BF171245129291EC00B8313A /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF170DB012928DE900B8313A /* OpenGLES.framework */; };
 		BF1712471292920000B8313A /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BF170DB412928DE900B8313A /* libz.dylib */; };
@@ -186,6 +187,8 @@
 		605A7D6E1C085D5300C1438F /* GameView.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameView.cpp; sourceTree = "<group>"; };
 		605A7D6F1C085D5300C1438F /* GameView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameView.h; sourceTree = "<group>"; };
 		60BDD31E1BECAB9200F8E9E3 /* assets */ = {isa = PBXFileReference; lastKnownFileType = folder; path = assets; sourceTree = "<group>"; };
+		60F9BF091C1132EB0000E5E7 /* FruitMachine.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FruitMachine.cpp; sourceTree = "<group>"; };
+		60F9BF0A1C1132EB0000E5E7 /* FruitMachine.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = FruitMachine.hpp; sourceTree = "<group>"; };
 		8262943D1AAF051F00CB7CF7 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		BF170DB012928DE900B8313A /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		BF170DB412928DE900B8313A /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
@@ -436,6 +439,8 @@
 				605A7D6A1C085D5300C1438F /* GameLogic.hpp */,
 				605A7D6B1C085D5300C1438F /* GameModel.cpp */,
 				605A7D6C1C085D5300C1438F /* GameModel.hpp */,
+				60F9BF091C1132EB0000E5E7 /* FruitMachine.cpp */,
+				60F9BF0A1C1132EB0000E5E7 /* FruitMachine.hpp */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -591,6 +596,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				60F9BF0B1C1132EB0000E5E7 /* FruitMachine.cpp in Sources */,
 				605A7D771C085D5300C1438F /* Fruit.cpp in Sources */,
 				605A7D721C085D5300C1438F /* CommponentManager.cpp in Sources */,
 				605A7D741C085D5300C1438F /* GameControl.cpp in Sources */,

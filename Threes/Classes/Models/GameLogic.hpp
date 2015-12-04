@@ -18,6 +18,8 @@
 class GameLogic:public Commponent
 {
 public:
+    static const string EVENT_DROP;
+    
 	GameLogic(void);
 	~GameLogic();
     

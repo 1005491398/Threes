@@ -126,6 +126,7 @@ points_ptr Drop::findOneWay(int x, int y)
     auto xx = x, yy = y;
     
     for (int i=0; i<2*xCount; i++) {
+        auto tmpx = xx, tmpy = yy;
         auto value = findUp(xx, yy);
         if (value == UnReachable) {
             value = findLeft(xx, yy);
@@ -136,23 +137,30 @@ points_ptr Drop::findOneWay(int x, int y)
                     break;
                 }
                 else {
-                    points->push_back(new drop_point(xx, yy));
                     points->push_back(new drop_point(xx-1, yy+1));
+                    points->push_back(new drop_point(xx, yy));
                     xx -= 1;
                     yy += 1;
                 }
             }
             else {
-                points->push_back(new drop_point(xx, yy));
                 points->push_back(new drop_point(xx-1, yy-1));
+                points->push_back(new drop_point(xx, yy));
                 xx -= 1;
                 yy -= 1;
             }
         }
         else {
-            points->push_back(new drop_point(xx, yy));
             points->push_back(new drop_point(xx-1, yy));
+            points->push_back(new drop_point(xx, yy));
             xx -= 1;
+        }
+        if (Map[xx][yy] == 2)
+        {
+            Map[x][y] = Map[xx][yy];
+            Map[xx][yy] = 1;
+//            _eliminatePoints.push_back(new drop_point(xx, yy));
+            break;
         }
         if (value == 1)
             break;
@@ -164,13 +172,16 @@ void Drop::init()
 {
     _exitPoints.clear();
     _eliminatePoints.clear();
-    memset(_map, 0, sizeof(Map));
-    for (int i=0; i<xCount; i++) {
-        for (int j=0; j<yCount; j++) {
+    memset(_map, 0, sizeof(_map));
+    for (int i=xCount-1; i>=0; i--) {
+        for (int j=yCount; j>=0; j--) {
             auto fruit = GetCommponent<GameModel*>("GameModel")->getFuit(i, j);
-            Map[i][j] = 1;
             if (fruit==nullptr) {
                 _eliminatePoints.push_back(new drop_point(i,j));
+                Map[i][j] = 1;
+            }
+            else {
+                Map[i][j] = 2;
             }
         }
     }
@@ -190,13 +201,15 @@ void printPoints(points_ptr points)
 vec_points_ptr Drop::doDrop()
 {
     init();
-    printMap(_map);
+    printMap(Map);
     
     auto dropPosints = make_shared<vector<points_ptr>>();
+    auto c = 0;
     for (auto p: _eliminatePoints) {
+        CCLOG("eliminateCount %d p:%d-%d",++c,p->x,p->y);
         auto points = findOneWay(p->x, p->y);
-        printPoints(findOneWay(p->x, p->y));
-        dropPosints->push_back(findOneWay(p->x, p->y));
+        printPoints(points);
+        dropPosints->push_back(points);
     }
     return dropPosints;
 }

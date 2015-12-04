@@ -23,6 +23,7 @@ Fruit::~Fruit()
 {
     CCLOG("Fruit %d-%d is destoryed!!", _x, _y);
 //    CC_SAFE_DELETE(_sprite);
+    _sprite->removeFromParent();
 }
 
 std::shared_ptr<Fruit> Fruit::create(FruitType type)
@@ -60,5 +61,5 @@ ImageView* Fruit::getSprite()
 
 void Fruit::remove()
 {
-    _sprite->removeFromParent();
+    
 }

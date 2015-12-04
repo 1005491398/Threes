@@ -33,6 +33,7 @@ public:
     
     inline Fruit_Ptr getFuit(int x, int y) { return fruits[x][y]; }
     void exchange(int sx,int sy,int dx,int dy);
+    void moveDown(int sx,int sy,int dx,int dy);
     void eliminateFruit(int x, int y);
 };
 

@@ -31,7 +31,7 @@ void GameModel::initRandomFruits()
 {
     for (int i=0; i<xCount; i++) {
         for (int j=0; j<yCount; j++) {
-            auto type = testMap[i][j] || (int)(CCRANDOM_0_1()*10);
+            auto type = testMap[i][j];// || (int)(CCRANDOM_0_1()*10);
             auto fruit = FruitFactory::getInstance()->getFruitByType(FruitType(type%6 + 1));
             fruit->setXY(i, j);
             fruits[i][j] = fruit;
@@ -58,6 +58,18 @@ void GameModel::exchange(int sx,int sy,int dx,int dy)
             fruits[dx][dy]->setXY(dx, dy);
         }
         dispatchEvent(EVENT_EXCHANGE);
+    }
+}
+
+void GameModel::moveDown(int sx,int sy,int dx,int dy)
+{
+    if (sx!=sy || dx!=dy) {
+        fruits[dx][dy] = fruits[sx][sy];
+        fruits[sx][sy] = nullptr;
+        if (fruits[dx][dy]) {
+            fruits[dx][dy]->setXY(dx, dy);
+        }
+//        dispatchEvent(EVENT_EXCHANGE);
     }
 }
 

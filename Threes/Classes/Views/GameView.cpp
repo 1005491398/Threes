@@ -20,7 +20,7 @@ GameView::~GameView()
 
 inline const Vec2 getFruitPosition(int x, int y)
 {
-    return Vec2(y*Width+Width/2 , x*Height+Height/2);
+    return Vec2(y*Width+Width/2 , (xCount-x-1)*Height+Height/2);
 }
 
 bool GameView::init()
@@ -30,7 +30,7 @@ bool GameView::init()
     auto size = Director::getInstance()->getWinSize();
     bg->setPosition(size.width/2, size.height/2);
     
-    GetCommponent<GameModel*>("GameModel")->registerEvent(GameModel::EVENT_EXCHANGE, [=](const Msg &msg){
+    auto update = [=](const Msg &msg){
         for (int i=0; i<xCount; i++) {
             for (int j=0; j<yCount; j++) {
                 auto fruit = GetCommponent<GameModel*>("GameModel")->getFuit(i, j);
@@ -40,7 +40,11 @@ bool GameView::init()
                 }
             }
         }
-    });
+    };
+    
+    GetCommponent<GameModel*>("GameModel")->registerEvent(GameModel::EVENT_EXCHANGE, update);
+    GetCommponent<GameLogic*>("GameLogic")->registerEvent(GameLogic::EVENT_DROP, update);
+    
     for (int i=0; i<xCount; i++) {
         for (int j=0; j<yCount; j++) {
             auto fruit = GetCommponent<GameModel*>("GameModel")->getFuit(i, j);
