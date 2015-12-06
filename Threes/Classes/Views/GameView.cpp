@@ -23,6 +23,16 @@ inline const Vec2 getFruitPosition(int x, int y)
     return Vec2(y*Width+Width/2 , (xCount-x-1)*Height+Height/2);
 }
 
+void GameView::addFruit(int x, int y)
+{
+    auto fruit = GetCommponent<GameModel*>("GameModel")->getFuit(x, y);
+    if (fruit) {
+        auto sp = fruit->getSprite();
+        this->addChild(sp);
+        sp->setPosition(getFruitPosition(x,y));
+    }
+}
+
 bool GameView::init()
 {
     auto bg = Sprite::create("assets/323.jpg");
@@ -42,17 +52,20 @@ bool GameView::init()
         }
     };
     
+    auto addNew = [this](const Msg &msg){
+        drop_point* point = (drop_point*)msg.data;
+        addFruit(point->x, point->y);
+        delete point;
+    };
+    
     GetCommponent<GameModel*>("GameModel")->registerEvent(GameModel::EVENT_EXCHANGE, update);
+    GetCommponent<GameLogic*>("GameModel")->registerEvent(GameModel::EVENT_ADD_FRUIT, addNew);
+    
     GetCommponent<GameLogic*>("GameLogic")->registerEvent(GameLogic::EVENT_DROP, update);
     
     for (int i=0; i<xCount; i++) {
         for (int j=0; j<yCount; j++) {
-            auto fruit = GetCommponent<GameModel*>("GameModel")->getFuit(i, j);
-            if (fruit) {
-                auto sp = fruit->getSprite();
-                this->addChild(sp);
-                sp->setPosition(getFruitPosition(i,j));
-            }
+            addFruit(i, j);
         }
     }
     return true;

@@ -26,4 +26,9 @@ const int NIL = -1;
 
 extern void printMap(int Map[xCount][yCount]);
 
+struct drop_point {
+    int x, y;
+    drop_point(int _x, int _y):x(_x),y(_y) {}
+};
+
 #endif /* Const_h */

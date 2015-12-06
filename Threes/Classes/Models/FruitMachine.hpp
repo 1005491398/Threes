@@ -12,18 +12,20 @@
 #include <stdio.h>
 #include <iostream>
 #include "Singleton.hpp"
+#include "IFruiMachine.hpp"
 
-class FruitMachine
+class FruitMachine: public IFruitMachine
 {
 public:
 	FruitMachine(void);
 	~FruitMachine();
 
-	/* data */
+    virtual Fruit_Ptr createNewFruit();
 protected:
     friend class Singleton<FruitMachine>;
+    
 private:
-
+    
 };
 
 #endif /* FruitMachine_hpp */

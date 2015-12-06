@@ -22,6 +22,7 @@ class GameView: public Layer{
 private:
     std::vector<Fruit_Ptr> fruitVec;
     
+    void addFruit(int x, int y);
 public:
     GameView() {}
     ~GameView();

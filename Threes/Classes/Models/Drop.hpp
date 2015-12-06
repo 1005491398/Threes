@@ -15,13 +15,11 @@
 #include "Const.h"
 #include "Singleton.hpp"
 #include <vector>
+#include <list>
 USING_NS_CC;
-struct drop_point {
-    int x, y;
-    drop_point(int _x, int _y):x(_x),y(_y) {}
-};
 
 using Points = std::vector<drop_point*>;
+using points_list = std::list<drop_point*>;
 using points_ptr = std::shared_ptr<Points>;
 using vec_points_ptr = std::shared_ptr<std::vector<points_ptr>>;
 
@@ -31,7 +29,7 @@ protected:
     
 private:
     Points _exitPoints;         //出口
-    Points _eliminatePoints;
+    points_list _eliminatePoints;
     int _map[xCount][yCount];
     int Map[xCount][yCount];
     

@@ -190,6 +190,7 @@
 		60F9BF091C1132EB0000E5E7 /* FruitMachine.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FruitMachine.cpp; sourceTree = "<group>"; };
 		60F9BF0A1C1132EB0000E5E7 /* FruitMachine.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = FruitMachine.hpp; sourceTree = "<group>"; };
 		8262943D1AAF051F00CB7CF7 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		B3C04C141C12E5E200F6C195 /* IFruiMachine.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = IFruiMachine.hpp; sourceTree = "<group>"; };
 		BF170DB012928DE900B8313A /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		BF170DB412928DE900B8313A /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		BF1C47EA1293683800B63C5D /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -441,6 +442,7 @@
 				605A7D6C1C085D5300C1438F /* GameModel.hpp */,
 				60F9BF091C1132EB0000E5E7 /* FruitMachine.cpp */,
 				60F9BF0A1C1132EB0000E5E7 /* FruitMachine.hpp */,
+				B3C04C141C12E5E200F6C195 /* IFruiMachine.hpp */,
 			);
 			path = Models;
 			sourceTree = "<group>";

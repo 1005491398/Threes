@@ -7,6 +7,7 @@
 //
 
 #include "FruitMachine.hpp"
+#include "FruitFactory.hpp"
 
 FruitMachine::FruitMachine()
 {
@@ -16,4 +17,9 @@ FruitMachine::FruitMachine()
 FruitMachine::~FruitMachine()
 {
 	
+}
+
+Fruit_Ptr FruitMachine::createNewFruit()
+{
+    return FruitFactory::getInstance()->getFruitByType(FruitType::Apple);
 }

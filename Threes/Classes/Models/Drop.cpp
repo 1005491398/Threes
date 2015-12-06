@@ -126,7 +126,6 @@ points_ptr Drop::findOneWay(int x, int y)
     auto xx = x, yy = y;
     
     for (int i=0; i<2*xCount; i++) {
-        auto tmpx = xx, tmpy = yy;
         auto value = findUp(xx, yy);
         if (value == UnReachable) {
             value = findLeft(xx, yy);
@@ -134,32 +133,33 @@ points_ptr Drop::findOneWay(int x, int y)
                 value = findRight(xx, yy);
                 if (value == UnReachable) {
                     // 无法移动
-                    break;
+                    points->push_back(new drop_point(xx, yy));
+                    return points;
                 }
                 else {
-                    points->push_back(new drop_point(xx-1, yy+1));
                     points->push_back(new drop_point(xx, yy));
+                    points->push_back(new drop_point(xx-1, yy+1));
                     xx -= 1;
                     yy += 1;
                 }
             }
             else {
-                points->push_back(new drop_point(xx-1, yy-1));
                 points->push_back(new drop_point(xx, yy));
+                points->push_back(new drop_point(xx-1, yy-1));
                 xx -= 1;
                 yy -= 1;
             }
         }
         else {
-            points->push_back(new drop_point(xx-1, yy));
             points->push_back(new drop_point(xx, yy));
+            points->push_back(new drop_point(xx-1, yy));
             xx -= 1;
         }
         if (Map[xx][yy] == 2)
         {
             Map[x][y] = Map[xx][yy];
             Map[xx][yy] = 1;
-//            _eliminatePoints.push_back(new drop_point(xx, yy));
+            _eliminatePoints.push_back(new drop_point(xx, yy));
             break;
         }
         if (value == 1)
@@ -208,8 +208,10 @@ vec_points_ptr Drop::doDrop()
     for (auto p: _eliminatePoints) {
         CCLOG("eliminateCount %d p:%d-%d",++c,p->x,p->y);
         auto points = findOneWay(p->x, p->y);
-        printPoints(points);
-        dropPosints->push_back(points);
+        if (points->size() != 0) {
+            printPoints(points);
+            dropPosints->push_back(points);
+        }
     }
     return dropPosints;
 }

@@ -18,6 +18,7 @@
 class GameModel:public Commponent {
 public:
     const static std::string EVENT_EXCHANGE;
+    const static std::string EVENT_ADD_FRUIT;
 private:
     Fruit_Ptr fruits[xCount][yCount];
     shared_ptr<GameLogic> _logic;
@@ -35,6 +36,7 @@ public:
     void exchange(int sx,int sy,int dx,int dy);
     void moveDown(int sx,int sy,int dx,int dy);
     void eliminateFruit(int x, int y);
+    void addNewFruit(int x, int y, Fruit_Ptr fruit);
 };
 
 #endif /* GameModel_hpp */

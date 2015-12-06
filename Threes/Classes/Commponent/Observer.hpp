@@ -15,7 +15,7 @@
 using namespace std;
 
 struct Msg {
-    
+    void *data;
 };
 
 typedef function<void(const Msg &msg)> eventFunc;
