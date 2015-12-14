@@ -120,7 +120,12 @@ int Drop::findRight(int x, int y)
     return find(x-1,y+1);
 }
 
-points_ptr Drop::findOneWay(int x, int y)
+void Drop::insertEliminatePoint(int x, int y, points_list::iterator *it)
+{
+    _eliminatePoints.insert(++(*it), new drop_point(x, y));
+}
+
+points_ptr Drop::findOneWay(int x, int y, points_list::iterator *it)
 {
     points_ptr points = make_shared<Points>();
     auto xx = x, yy = y;
@@ -133,6 +138,7 @@ points_ptr Drop::findOneWay(int x, int y)
                 value = findRight(xx, yy);
                 if (value == UnReachable) {
                     // 无法移动
+                    CCLOG("Can't move!!");
                     points->push_back(new drop_point(xx, yy));
                     return points;
                 }
@@ -159,7 +165,9 @@ points_ptr Drop::findOneWay(int x, int y)
         {
             Map[x][y] = Map[xx][yy];
             Map[xx][yy] = 1;
-            _eliminatePoints.push_back(new drop_point(xx, yy));
+            CCLOG("fruit %d-%d", xx, yy);
+//            _eliminatePoints.push_back(new drop_point(xx, yy));
+            insertEliminatePoint(xx, yy, it);
             break;
         }
         if (value == 1)
@@ -174,7 +182,7 @@ void Drop::init()
     _eliminatePoints.clear();
     memset(_map, 0, sizeof(_map));
     for (int i=xCount-1; i>=0; i--) {
-        for (int j=yCount; j>=0; j--) {
+        for (int j=0; j<yCount; j++) {
             auto fruit = GetCommponent<GameModel*>("GameModel")->getFuit(i, j);
             if (fruit==nullptr) {
                 _eliminatePoints.push_back(new drop_point(i,j));
@@ -205,9 +213,10 @@ vec_points_ptr Drop::doDrop()
     
     auto dropPosints = make_shared<vector<points_ptr>>();
     auto c = 0;
-    for (auto p: _eliminatePoints) {
+    for (auto it = _eliminatePoints.begin(); it != _eliminatePoints.end(); it++) {
+        auto p = *it;
         CCLOG("eliminateCount %d p:%d-%d",++c,p->x,p->y);
-        auto points = findOneWay(p->x, p->y);
+        auto points = findOneWay(p->x, p->y, &it);
         if (points->size() != 0) {
             printPoints(points);
             dropPosints->push_back(points);

@@ -45,7 +45,8 @@ private:
     int findUp(int x, int y);
     int findLeft(int x, int y);
     int findRight(int x, int y);
-    points_ptr findOneWay(int x, int y);
+    void insertEliminatePoint(int x, int y, points_list::iterator *it);
+    points_ptr findOneWay(int x, int y, points_list::iterator *it = nullptr);
 public:
     Drop();
     ~Drop() {}
