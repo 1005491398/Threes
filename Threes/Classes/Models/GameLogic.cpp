@@ -74,8 +74,8 @@ void GameLogic::processDrop(ThreesVec_ptr threeVec)
             int index = i*2;
             GetCommponent<GameModel*>("GameModel")->moveDown(points->at(index+1)->x, points->at(index+1)->y, points->at(index)->x, points->at(index)->y);
         }
-        dispatchEvent(EVENT_DROP);
     }
+    dispatchEvent(EVENT_DROP);
 }
 
 void GameLogic::setSelect(int x, int y)
@@ -84,8 +84,12 @@ void GameLogic::setSelect(int x, int y)
         GetCommponent<GameModel*>("GameModel")->exchange(_selectX, _selectY, x, y);
         _selectX = NIL;
         _selectY = NIL;
-        processEliminate(Singleton<Eliminate>::getInstance().doEliminate());
-        processDrop(nullptr);
+        auto points = Singleton<Eliminate>::getInstance().doEliminate();
+        while (!points->empty()) {
+            processEliminate(points);
+            processDrop(nullptr);
+            points = Singleton<Eliminate>::getInstance().doEliminate();
+        }
         return;
     }
     _selectX = x;

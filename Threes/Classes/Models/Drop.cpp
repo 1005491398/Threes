@@ -122,7 +122,20 @@ int Drop::findRight(int x, int y)
 
 void Drop::insertEliminatePoint(int x, int y, points_list::iterator *it)
 {
-    _eliminatePoints.insert(++(*it), new drop_point(x, y));
+    auto remindIt = *it;
+    while (++remindIt != _eliminatePoints.end()) {
+        if ((*remindIt)->x == x) {
+            if ((*remindIt)->y >= y) {
+                _eliminatePoints.insert(remindIt, new drop_point(x, y));
+                return;
+            }
+        }
+        else if ((*remindIt)->x < x) {
+            _eliminatePoints.insert(remindIt, new drop_point(x, y));
+            return;
+        }
+    }
+    _eliminatePoints.push_back(new drop_point(x, y));
 }
 
 points_ptr Drop::findOneWay(int x, int y, points_list::iterator *it)
