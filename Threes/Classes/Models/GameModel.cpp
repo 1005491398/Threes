@@ -8,8 +8,10 @@
 
 #include "GameModel.hpp"
 #include "FruitFactory.hpp"
+#include "Protocol.h"
 const std::string GameModel::EVENT_EXCHANGE = "EVENT_EXCHANGE";
 const std::string GameModel::EVENT_ADD_FRUIT = "EVENT_ADD_FRUIT";
+const std::string GameModel::EVENT_MOVEDOWN = "EVENT_MOVEDOWN";
 
 int testMap[9][9] = {
     {1,4,4,4,3,2,1,2,3},
@@ -66,8 +68,8 @@ void GameModel::addNewFruit(int x, int y, Fruit_Ptr fruit)
 {
     fruit->setXY(x, y);
     fruits[x][y] = fruit;
-    Msg msg;
-    msg.data = new drop_point(x, y);
+    MoveDown msg;
+    msg.fruit = fruit;
     dispatchEvent(EVENT_ADD_FRUIT, msg);
 }
 
@@ -78,8 +80,10 @@ void GameModel::moveDown(int sx,int sy,int dx,int dy)
         fruits[sx][sy] = nullptr;
         if (fruits[dx][dy]) {
             fruits[dx][dy]->setXY(dx, dy);
+            MoveDown msg;
+            msg.fruit = fruits[dx][dy];
+            dispatchEvent(EVENT_MOVEDOWN, msg);
         }
-//        dispatchEvent(EVENT_EXCHANGE);
     }
 }
 

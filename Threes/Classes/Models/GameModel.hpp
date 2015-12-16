@@ -15,10 +15,16 @@
 #include "Commponent.hpp"
 #include "GameLogic.hpp"
 
+struct MoveDown: public Msg {
+    Fruit_Ptr fruit;
+};
+
+// 关卡模型 保存 所有水果的状态
 class GameModel:public Commponent {
 public:
     const static std::string EVENT_EXCHANGE;
     const static std::string EVENT_ADD_FRUIT;
+    const static std::string EVENT_MOVEDOWN;
 private:
     Fruit_Ptr fruits[xCount][yCount];
     shared_ptr<GameLogic> _logic;

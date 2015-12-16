@@ -23,6 +23,7 @@ private:
     std::vector<Fruit_Ptr> fruitVec;
     
     void addFruit(int x, int y);
+    void doMoveDownAnimation(const Msg &msg);
 public:
     GameView() {}
     ~GameView();

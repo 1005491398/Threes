@@ -12,11 +12,12 @@
 #include <stdio.h>
 #include <iostream>
 #include <unordered_map>
+#include "Protocol.h"
 using namespace std;
 
-struct Msg {
-    void *data;
-};
+//struct Msg {
+//    void *data;
+//};
 
 typedef function<void(const Msg &msg)> eventFunc;
 

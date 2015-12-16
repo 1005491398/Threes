@@ -15,6 +15,7 @@
 #include "Commponent.hpp"
 #include "Eliminate.hpp"
 
+// 游戏逻辑
 class GameLogic:public Commponent
 {
 public:

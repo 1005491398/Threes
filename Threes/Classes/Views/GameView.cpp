@@ -12,6 +12,7 @@
 #include "CommponentManager.hpp"
 
 #pragma omp parallel for
+const float MoveDownTime = 0.777f;
 
 GameView::~GameView()
 {
@@ -30,6 +31,17 @@ void GameView::addFruit(int x, int y)
         auto sp = fruit->getSprite();
         this->addChild(sp);
         sp->setPosition(getFruitPosition(x,y));
+    }
+}
+
+void GameView::doMoveDownAnimation(const Msg &msg)
+{
+    auto args = (MoveDown&)msg;
+    auto fruit = args.fruit;
+    if (fruit) {
+        auto sp = fruit->getSprite();
+        sp->stopAllActions();
+        sp->runAction(MoveTo::create(MoveDownTime, getFruitPosition(fruit->px(), fruit->py())));
     }
 }
 
@@ -53,15 +65,22 @@ bool GameView::init()
     };
     
     auto addNew = [this](const Msg &msg){
-        drop_point* point = (drop_point*)msg.data;
-        addFruit(point->x, point->y);
-        delete point;
+        auto args = (MoveDown&)msg;
+        auto fruit = args.fruit;
+        if (fruit) {
+            auto sp = fruit->getSprite();
+            this->addChild(sp);
+            sp->stopAllActions();
+            sp->setPosition(getFruitPosition(fruit->px()-1, fruit->py()));
+            sp->runAction(MoveTo::create(MoveDownTime, getFruitPosition(fruit->px(), fruit->py())));
+        }
     };
     
     GetCommponent<GameModel*>("GameModel")->registerEvent(GameModel::EVENT_EXCHANGE, update);
-    GetCommponent<GameLogic*>("GameModel")->registerEvent(GameModel::EVENT_ADD_FRUIT, addNew);
+    GetCommponent<GameModel*>("GameModel")->registerEvent(GameModel::EVENT_ADD_FRUIT, addNew);
+    GetCommponent<GameModel*>("GameModel")->registerEvent(GameModel::EVENT_MOVEDOWN, CC_CALLBACK_1(GameView::doMoveDownAnimation, this));
     
-    GetCommponent<GameLogic*>("GameLogic")->registerEvent(GameLogic::EVENT_DROP, update);
+//    GetCommponent<GameLogic*>("GameLogic")->registerEvent(GameLogic::EVENT_DROP, update);
     
     for (int i=0; i<xCount; i++) {
         for (int j=0; j<yCount; j++) {

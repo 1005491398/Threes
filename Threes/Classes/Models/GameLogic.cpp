@@ -70,6 +70,7 @@ void GameLogic::processDrop(ThreesVec_ptr threeVec)
             auto fruit = Singleton<FruitMachine>::getInstance().createNewFruit();
             GetCommponent<GameModel*>("GameModel")->addNewFruit(lastx, lasty, fruit);
         }
+        // 反向遍历 从小到大
         for (int i=points->size()/2-1; i>=0; i--) {
             int index = i*2;
             GetCommponent<GameModel*>("GameModel")->moveDown(points->at(index+1)->x, points->at(index+1)->y, points->at(index)->x, points->at(index)->y);
